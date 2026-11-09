@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101114">
+  <title>My Music Recognizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="brand-mark">♫</div>
+      <div>
+        <h1>MY MUSIC</h1>
+        <p class="subhead">Личный музыкальный распознаватель</p>
+      </div>
+      <span class="local-badge">ЛОКАЛЬНО</span>
+    </header>
+
+    <section class="library panel">
+      <div class="section-title">
+        <div>
+          <h2>Моя коллекция</h2>
+          <p id="libraryStatus">Пока нет добавленных композиций</p>
+        </div>
+        <div class="library-icon">▤</div>
+      </div>
+      <label class="file-button" for="audioFiles">＋ Добавить музыку</label>
+      <input id="audioFiles" type="file" accept="audio/*,.mp3,.wav,.m4a,.aac,.flac,.ogg" multiple>
+      <div class="progress-wrap" id="importProgressWrap" hidden>
+        <div class="progress-track"><div id="importProgress"></div></div>
+        <p id="importStatus" class="small"></p>
+      </div>
+      <div class="library-actions">
+        <button class="text-button" id="refreshBtn">Обновить список</button>
+        <button class="text-button danger-text" id="clearBtn">Очистить базу</button>
+      </div>
+      <ul id="trackList" class="track-list"></ul>
+    </section>
+
+    <section class="recognize panel">
+      <div class="eyebrow">РАСПОЗНАВАНИЕ ПО МИКРОФОНУ</div>
+      <div class="listen-orb" id="listenOrb"><span>♫</span></div>
+      <h2 id="listenTitle">Что сейчас играет?</h2>
+      <p id="listenHint">Включи музыку на другом устройстве и нажми кнопку ниже.</p>
+      <button id="listenBtn" class="listen-button">Слушать 10 секунд</button>
+      <p id="micStatus" class="small status-line">Микрофон включится только после нажатия</p>
+    </section>
+
+    <section class="result panel" id="resultPanel" aria-live="polite">
+      <div class="eyebrow">РЕЗУЛЬТАТ</div>
+      <div id="resultIcon" class="result-icon">♪</div>
+      <h2 id="resultTitle">Здесь появится результат</h2>
+      <p id="resultDetail">Программа сравнит услышанное только с твоей коллекцией.</p>
+      <button id="openResultBtn" class="file-button secondary" hidden>Открыть аудиофайл</button>
+    </section>
+
+    <footer>
+      <p>Твоя музыка и отпечатки хранятся в этом браузере на этом устройстве.</p>
+      <p>Для работы микрофона сайт должен быть открыт через HTTPS.</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
